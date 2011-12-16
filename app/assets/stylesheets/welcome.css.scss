@@ -1,6 +1,22 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-    background-color:#00ff80;
+html,body{
+ height:100%;
+ margin:0px;
+ padding:0px
+ }
+
+table.sam {
+    background-color: #EEF;
+    width: 100%;
+    height: 100%;
+}
+
+td.a{
+    background-color: #d9d9e5;
+}
+
+p.font{
+    font-size:20px;
 }

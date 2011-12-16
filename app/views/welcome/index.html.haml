@@ -1,2 +1,8 @@
-%body
-  #{user_agent}
+%table.sam
+  %tr{:height => "90%"}
+    %td{:width => "25%"}
+    %td.a{:valign => "top", :width => "50%"}
+      %p.font
+        Info from request.user_agent:
+      %li #{user_agent}
+    %td{:width => "25%"}

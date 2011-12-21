@@ -1,0 +1,23 @@
+%h1 Listing users
+
+%table
+  %tr
+    %th User email
+    %th Pass
+    %th
+    %th
+    %th
+
+  - @users.each do |user|
+    %tr
+      %td= user.user_email
+      %td= user.pass
+      %td= link_to 'Show', user
+      %td= link_to 'Edit', edit_user_path(user)
+      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New User', new_user_path
+%br
+  = link_to 'Return to Welcome page', root_path

@@ -1,10 +1,25 @@
 %table.sam
   %tr{:height => "90%"}
     %td{:width => "25%"}
-    %td.a{:valign => "top", :width => "50%"}
       %p.font
-        You are logged
+        = link_to 'List of Users(scaffold)', users_path
+        %br
+        %br
+        = link_to 'Logout', logout_path
+    %td.a{:width => "50%"}
+      %b
+        hello,
+      = @current_user
+
+    %td{:width => "25%"}
       %p.font
-        = link_to 'List of Users', users_path
-      %td{:width => "25%"}
+        All users:
+      %table
+        - @users.each do |user|
+          %tr= link_to user.user_email
+
+
+
+
+
 

@@ -16,7 +16,8 @@
         All users:
       %table
         - @users.each do |user|
-          %tr= link_to user.user_email
+          %tr
+            %td= link_to user.user_email
 
 
 

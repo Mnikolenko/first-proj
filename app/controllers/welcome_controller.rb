@@ -30,9 +30,15 @@ class WelcomeController < ApplicationController
 
   def reg
       if params[:user_email] && params[:pass] && !params[:user_email].empty? && !params[:pass].empty? then
-        @user = User.new(:user_email => params[:user_email],:pass => params[:pass])
-        @user.save
-        redirect_to root_path
+        user_email_exists = User.find_by_user_email(params[:user_email])
+        if !user_email_exists
+          @user = User.new(:user_email => params[:user_email],:pass => params[:pass])
+          @user.save
+          redirect_to root_path
+        else
+          flash[:notice] = "User with such e-mail is already exist"
+        end
+
       end
   end
 

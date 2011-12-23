@@ -17,7 +17,10 @@
       %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
 
 %br
-
 = link_to 'New User', new_user_path
+%br
+%br
+= link_to 'Delete All Posts', deletecomments_path
+%br
 %br
   = link_to 'Return to Welcome page', root_path

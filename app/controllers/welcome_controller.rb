@@ -14,15 +14,6 @@ class WelcomeController < ApplicationController
     end
   end
 
-  def loged
-    if !session[:user_id]
-      redirect_to root_path
-    else
-      @current_user = User.find(session[:user_id]).user_email
-      @users = User.all
-    end
-  end
-
   def logout
     session[:user_id] = nil
     redirect_to root_path

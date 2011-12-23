@@ -72,6 +72,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+
     @user = User.find(params[:id])
     @user.destroy
 
@@ -80,4 +81,10 @@ class UsersController < ApplicationController
       format.json { head :ok }
     end
   end
-end
+
+  def deletecomments
+    Post.destroy_all
+    redirect_to users_path
+    end
+  end
+

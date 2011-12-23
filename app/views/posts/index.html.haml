@@ -1,0 +1,44 @@
+%table.sam
+  %tr{:height => "90%"}
+    %td{:width => "25%"}
+      %p.font
+        = link_to 'New Post', newpost_path
+        %br
+        %br
+        = link_to 'Logout', logout_path
+    %td.a{:width => "50%"}
+      %b
+        hello,
+      = @current_user
+
+      %p.font
+        All posts:
+      %table.posts
+        - @posts.each do |post|
+          %tr
+            %td
+              Написано:
+              = post.updated_at
+          %tr
+            %td
+              Автор:
+              - a= post.user.user_email if post.user
+              = a
+          %tr
+            %td
+              Тема:
+              = post.title
+
+          %tr
+            %td= post.text
+          %tr
+            %td
+              %hr
+
+    %td{:width => "25%"}
+      %p.font
+        All users:
+      %table
+        - @users.each do |user|
+          %tr
+            %td= link_to user.user_email

@@ -51,9 +51,11 @@ Myapp1::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
    root :to => 'welcome#index'
-   match '/loged' => 'welcome#loged', as: 'loged'
+   match '/loged' => 'posts#index', as: 'loged'
    match '/logout' => 'welcome#logout', as: 'logout'
    match '/reg' => 'welcome#reg', as: 'reg'
+   match '/newpost' => 'posts#newpost', as: 'newpost'
+   match '/deletecomments' => 'users#deletecomments', as: 'deletecomments'
   # match 'str' => 'welcome#str'
   # See how all your routes lay out with "rake routes"
 

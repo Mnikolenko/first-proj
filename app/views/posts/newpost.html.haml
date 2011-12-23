@@ -1,0 +1,26 @@
+%table.sam
+  %tr{:height => "90%"}
+    %td{:width => "25%"}
+      %p.font
+        = link_to 'View Posts', loged_path
+        %br
+        %br
+        = link_to 'Logout', logout_path
+    %td.a{:width => "50%"}
+      %p.font
+        Ваш комментарий:
+      = form_tag "/newpost" do
+        Тема:
+        = text_field_tag :title, params[:title]
+        %br
+        %br
+        Комментарий:
+        %br
+        = text_area_tag :text, params[:text], :cols => "35",:rows => "10"
+        %br
+        = submit_tag("Написать")
+
+      %td{:width => "25%"}
+
+
+

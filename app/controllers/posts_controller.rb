@@ -26,5 +26,13 @@ class PostsController < ApplicationController
       @users = User.all
       @posts = Post.all.sort_by{:updated_at}.reverse
     end
+    end
+
+  def answer
+      if !session[:user_id]
+      redirect_to root_path
+    else
+
+    end
   end
 end

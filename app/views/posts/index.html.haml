@@ -8,7 +8,7 @@
         = link_to 'Logout', logout_path
     %td.a{:width => "50%"}
       %b
-        hello,
+        Hello,
       = @current_user
 
       %p.font
@@ -17,20 +17,29 @@
         - @posts.each do |post|
           %tr
             %td
-              Написано:
+              %i
+                Написано:
               = post.updated_at
           %tr
             %td
-              Автор:
+              %i
+                Автор:
               - a= post.user.user_email if post.user
               = a
           %tr
             %td
-              Тема:
+              %i
+                Тема:
               = post.title
 
           %tr
             %td= post.text
+          %tr
+            %td
+              -ans = post.comments.count
+              -lnk =  "Ответов: #{ans}"
+              = link_to lnk, comments_path(post)
+
           %tr
             %td
               %hr

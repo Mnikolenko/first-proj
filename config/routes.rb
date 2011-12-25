@@ -1,6 +1,6 @@
 Myapp1::Application.routes.draw do
   resources :users
-
+  resources :comment
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -56,6 +56,8 @@ Myapp1::Application.routes.draw do
    match '/reg' => 'welcome#reg', as: 'reg'
    match '/newpost' => 'posts#newpost', as: 'newpost'
    match '/deletecomments' => 'users#deletecomments', as: 'deletecomments'
+  match '/comments/:id' => 'comment#index',as: 'comments'
+    match '/newcom' => 'comment#newcom', as: 'newcom'
   # match 'str' => 'welcome#str'
   # See how all your routes lay out with "rake routes"
 

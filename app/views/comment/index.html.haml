@@ -1,0 +1,69 @@
+%table.sam
+  %tr{:height => "90%"}
+    %td{:width => "25%"}
+      %p.font
+        = link_to 'New comment', newcom_path
+        %br
+        %br
+        = link_to 'All Posts', loged_path
+        %br
+        %br
+        = link_to 'Logout', logout_path
+    %td.a{:width => "50%"}
+      %table.posts
+        %tr
+          %td
+            %h2
+              Пост
+        %tr
+          %td
+            %i
+              Написано:
+              = @post.updated_at
+        %tr
+          %td
+            %i
+              Автор:
+            - a= @post.user.user_email if @post.user
+            = a
+        %tr
+          %td
+            %i
+              Тема:
+            =@post.title
+
+        %tr
+          %td= @post.text
+
+        %tr
+          %td
+            %hr
+            %hr
+        %tr
+          %td
+            %h3
+              Ответы на пост
+
+      %table.posts
+        - @post.comments.each do |comment|
+
+          %tr
+            %td
+              %i
+                Автор:
+              - a= @post.user.user_email if @post.user
+              = a
+          %tr
+            %td= comment.text
+          %tr
+            %td
+              %hr
+
+
+    %td{:width => "25%"}
+      %p.font
+        All users:
+      %table
+        - @users.each do |user|
+          %tr
+            %td= link_to user.user_email

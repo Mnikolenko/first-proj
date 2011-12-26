@@ -8,17 +8,17 @@
         = link_to 'Logout', logout_path
     %td.a{:width => "50%"}
       %p.font
-        Ваш комментарий:
+        Your post:
       = form_tag "/newpost" do
-        Тема:
+        Title:
         = text_field_tag :title, params[:title]
         %br
         %br
-        Комментарий:
+        Post:
         %br
         = text_area_tag :text, params[:text], :cols => "35",:rows => "10"
         %br
-        = submit_tag("Написать")
+        = submit_tag("Write")
 
       %td{:width => "25%"}
 

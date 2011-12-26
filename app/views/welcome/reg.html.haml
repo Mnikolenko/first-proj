@@ -6,15 +6,17 @@
       %p.font
         = link_to 'Main', root_path
     %td.a{:width => "50%"}
+      %h1
+        Registration
       %p.font
-        Введите данные для регистрации:
+        Enter the following data to complete registration:
       = form_tag "/reg" do
         E-mail:
         = text_field_tag :user_email, params[:user_email]
-        Пароль:
+        Password:
         = password_field_tag :pass, params[:pass]
         %br
-        = submit_tag("Зарегестрироваться")
+        = submit_tag("Register")
 
       %td{:width => "25%"}
 

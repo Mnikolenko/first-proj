@@ -18,18 +18,18 @@
           %tr
             %td
               %i
-                Написано:
+                Time:
               = post.updated_at
           %tr
             %td
               %i
-                Автор:
+                Author:
               - a= post.user.user_email if post.user
               = a
           %tr
             %td
               %i
-                Тема:
+                Title:
               = post.title
 
           %tr
@@ -37,7 +37,7 @@
           %tr
             %td
               -ans = post.comments.count
-              -lnk =  "Ответов: #{ans}"
+              -lnk =  "Comments: #{ans}"
               = link_to lnk, comments_path(post)
 
           %tr

@@ -2,21 +2,23 @@
   %tr{:height => "90%"}
     %td{:width => "25%"}
       %p.font
-
+        = link_to 'All Comments', :back
+        %br
+        %br
         = link_to 'All Posts', loged_path
         %br
         %br
         = link_to 'Logout', logout_path
     %td.a{:width => "50%"}
       %p.font
-        Ваш комментарий:
+        Your comment:
       = form_tag "/newcom" do
 
-        Комментарий:
+        Comment:
         %br
         = text_area_tag :text, params[:text], :cols => "35",:rows => "10"
         %br
-        = submit_tag("Написать")
+        = submit_tag("Write")
 
       %td{:width => "25%"}
 

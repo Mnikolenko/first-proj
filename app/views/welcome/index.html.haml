@@ -4,15 +4,17 @@
       %p.font
         = link_to 'Registration', reg_path
     %td.a{:width => "50%"}
+      %h1
+        Authorization
       %p.font
-        Введите данные для входа:
+        Enter your e-mail and password to log-in:
       = form_tag "/" do
         E-mail:
         = text_field_tag :user_email, params[:user_email]
-        Пароль:
+        Password:
         = password_field_tag :pass, params[:pass]
         %br
-        = submit_tag("Войти")
+        = submit_tag("Log-in")
 
       %td{:width => "25%"}
 

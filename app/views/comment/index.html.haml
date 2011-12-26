@@ -14,22 +14,22 @@
         %tr
           %td
             %h2
-              Пост
+              Post
         %tr
           %td
             %i
-              Написано:
+              Time:
               = @post.updated_at
         %tr
           %td
             %i
-              Автор:
+              Author:
             - a= @post.user.user_email if @post.user
             = a
         %tr
           %td
             %i
-              Тема:
+              Title:
             =@post.title
 
         %tr
@@ -42,7 +42,7 @@
         %tr
           %td
             %h3
-              Ответы на пост
+              Comments to the post
 
       %table.posts
         - @post.comments.each do |comment|
@@ -50,7 +50,7 @@
           %tr
             %td
               %i
-                Автор:
+                Author:
               - a= @post.user.user_email if @post.user
               = a
           %tr

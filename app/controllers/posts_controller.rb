@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def newpost
 
     if !session[:user_id]
@@ -19,12 +20,16 @@ class PostsController < ApplicationController
   end
 
     def index
+
     if !session[:user_id]
       redirect_to root_path
     else
       @current_user = User.find(session[:user_id]).user_email
+      @user = User.find(session[:user_id])
       @users = User.all
+      @users.delete(@user)
       @posts = Post.all.sort_by{:updated_at}.reverse
+
     end
     end
 
@@ -35,4 +40,7 @@ class PostsController < ApplicationController
 
     end
   end
+
+
+
 end

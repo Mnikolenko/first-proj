@@ -4,7 +4,9 @@ class CommentController < ApplicationController
       redirect_to root_path
     else
       @current_user = User.find(session[:user_id]).user_email
+      @user = User.find(session[:user_id])
       @users = User.all
+      @users.delete(@user)
       @post = Post.find(params[:id])
       session[:post_id] = params[:id]
     end

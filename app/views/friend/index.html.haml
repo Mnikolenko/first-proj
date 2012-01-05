@@ -1,0 +1,31 @@
+%table.sam
+  %tr{:height => "90%"}
+    %td{:width => "25%"}
+      %p.font
+        = link_to 'Back', :back
+        %br
+        %br
+        = link_to 'Logout', logout_path
+    %td.a{:width => "50%"}
+      %b
+        Hello,
+      = @current_user
+      %br
+
+        %h2
+          Add Friend
+      %b
+        Do you really want to add to your Friends the following user:
+
+      %i
+        = @friend_user
+        ?
+      %br
+      %br
+      = button_to "YES", addfriend_path
+      %br
+      = button_to "NO", loged_path
+
+
+    %td{:width => "25%"}
+

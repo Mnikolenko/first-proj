@@ -85,6 +85,7 @@ class UsersController < ApplicationController
   def deletecomments
     Comment.destroy_all
     Post.destroy_all
+    Friend.destroy_all
     redirect_to users_path
     end
   end

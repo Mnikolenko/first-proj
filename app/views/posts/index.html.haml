@@ -50,4 +50,12 @@
       %table
         - @users.each do |user|
           %tr
-            %td= link_to user.user_email
+            %td= link_to user.user_email, friend_path(user.user_email)
+      %p.font
+        Your Friends:
+      %table
+        - @user.friends.each do |fr|
+          %tr
+            %td
+              -f = User.find(fr.friend_id).user_email
+              = link_to f, friend_path(f)

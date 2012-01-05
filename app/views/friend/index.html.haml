@@ -5,6 +5,9 @@
         = link_to 'Back', :back
         %br
         %br
+        = link_to 'All Posts', loged_path
+        %br
+        %br
         = link_to 'Logout', logout_path
     %td.a{:width => "50%"}
       %b
@@ -13,19 +16,25 @@
       %br
 
         %h2
-          Add Friend
-      %b
-        Do you really want to add to your Friends the following user:
+          User:
+          = @friend_user
 
-      %i
-        = @friend_user
-        ?
+      -lnk =  "#{@add_delete} Friends"
+      %b
+        = link_to lnk, friend_path(@friend_user)
       %br
       %br
-      = button_to "YES", addfriend_path
-      %br
-      = button_to "NO", loged_path
+      %b
+        = link_to "Show all posts of this user", friends_posts_path(@friend_user)
 
 
     %td{:width => "25%"}
+      %p.font
+        Your Friends:
+      %table
+        - @user.friends.each do |fr|
+          %tr
+            %td
+              -f = User.find(fr.friend_id).user_email
+              = link_to f, frpage_path(f)
 

@@ -2,7 +2,10 @@
   %tr{:height => "90%"}
     %td{:width => "25%"}
       %p.font
-        = link_to 'New Post', newpost_path
+        = link_to 'Back', :back
+        %br
+        %br
+        = link_to 'All Posts', loged_path
         %br
         %br
         = link_to 'Logout', logout_path
@@ -12,7 +15,8 @@
       = @current_user
 
       %p.font
-        All posts:
+        Posts written by:
+        = @friend_user
       %table.posts
         - @posts.each do |post|
           %tr
@@ -45,12 +49,6 @@
               %hr
 
     %td{:width => "25%"}
-      %p.font
-        All users:
-      %table
-        - @users.each do |user|
-          %tr
-            %td= link_to user.user_email, frpage_path(user.user_email)
       %p.font
         Your Friends:
       %table

@@ -58,11 +58,13 @@ Myapp1::Application.routes.draw do
   match '/deletecomments' => 'users#deletecomments', as: 'deletecomments'
   match '/comments/:id' => 'comment#index',as: 'comments'
     match '/newcom' => 'comment#newcom', as: 'newcom'
-  match '/friend/:email' => 'friend#index', as: 'friend'
+  match '/friend/:email' => 'friend#index', as: 'frpage'
+  match '/friend/:email/newfriend' => 'friend#newfriend', as: 'friend'
   match '/friend/:email/addfriend' => 'friend#addfriend', as: 'addfriend'
   match '/friend/:email/deletefriends' => 'friend#deletefriends', as: 'deletefriends'
   match '/friend/:email/delfriend' => 'friend#delfriend', as: 'delfriend'
 
+  match '/friend/:email/friends_posts' => 'friend#friends_posts', as: 'friends_posts'
 
   # match 'str' => 'welcome#str'
   # See how all your routes lay out with "rake routes"

@@ -1,0 +1,14 @@
+%table.posts
+  - @post.comments.each do |comment|
+  - email = @post.user.user_email if @post.user
+  - text = comment.text
+    %tr
+      %td
+        %i
+          Author:
+        = email
+    %tr
+      %td= text
+    %tr
+      %td
+        %hr

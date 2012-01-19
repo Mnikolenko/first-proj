@@ -2,13 +2,22 @@
   %tr{:height => "90%"}
     %td{:width => "25%"}
       %p.font
-        = link_to 'New comment', newcom_path
-        %br
-        %br
         = link_to 'All Posts', loged_path
         %br
         %br
         = link_to 'Logout', logout_path
+        %br
+        %br
+        %hr
+        %h3
+          Write your comment to this post:
+        = form_tag "/newcom", :remote => true do
+          Comment:
+          %br
+          = text_area_tag :text, params[:text], :cols => "40",:rows => "10"
+          %br
+          = submit_tag "Write"
+        %hr
     %td.a{:width => "50%"}
       %table.posts
         %tr
@@ -44,20 +53,9 @@
             %h3
               Comments to the post
 
-      %table.posts
-        - @post.comments.each do |comment|
 
-          %tr
-            %td
-              %i
-                Author:
-              - a= @post.user.user_email if @post.user
-              = a
-          %tr
-            %td= comment.text
-          %tr
-            %td
-              %hr
+      #all_comments
+        = render :partial => "comment"
 
 
     %td{:width => "25%"}
